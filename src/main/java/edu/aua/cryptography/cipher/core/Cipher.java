@@ -1,7 +1,9 @@
 package edu.aua.cryptography.cipher.core;
 
+import java.math.BigInteger;
+
 public interface Cipher {
-    byte[] apply(final OpMode opMode, final byte[] message);
+    String apply(OpMode opMode, String message, BigInteger publicKey, BigInteger privateKey);
 
     enum OpMode {
         ENCRYPT, DECRYPT;
