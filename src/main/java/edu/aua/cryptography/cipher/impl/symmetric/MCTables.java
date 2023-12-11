@@ -1,3 +1,4 @@
+package edu.aua.cryptography.cipher.impl.symmetric;
 
 public class MCTables {
 

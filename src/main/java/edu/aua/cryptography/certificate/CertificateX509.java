@@ -1,6 +1,7 @@
 package edu.aua.cryptography.certificate;
 
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 
 public class CertificateX509 {
     private final int version;
@@ -16,6 +17,10 @@ public class CertificateX509 {
         this.periodOfValidity = periodOfValidity;
         this.subjectName = subjectName;
         this.publicKeyInformation = publicKeyInformation;
+    }
+
+    public static OffsetDateTime defaultValidUntil() {
+        return OffsetDateTime.now().plusWeeks(1L);
     }
 
     public int getVersion() {
@@ -44,5 +49,16 @@ public class CertificateX509 {
 
     public void setSignatureInformation(SignatureInformation signatureInformation) {
         this.signatureInformation = signatureInformation;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "version=" + version +
+                ",issuerName='" + issuerName + '\'' +
+                ",periodOfValidity=" + Arrays.toString(periodOfValidity) +
+                ",subjectName='" + subjectName + '\'' +
+                ",publicKeyInformation=" + publicKeyInformation +
+                '}';
     }
 }
